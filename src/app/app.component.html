@@ -1,0 +1,59 @@
+<div class="d-flex main">
+  <div class="content w-50 h-100">
+    <div class="col-12 p-5 form-login">
+      <form id="loginForm">
+        <div class="form-floating">
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="name"
+            [ngModelOptions]="{standalone: true}"
+          />
+          <label for="inputUsername">Task</label>
+        </div>
+        <div class="form-floating">
+          <input
+            type="desc"
+            class="form-control"
+            [(ngModel)]="desc"
+            [ngModelOptions]="{standalone: true}">
+          <label for="inputPassword">Description</label>
+        </div>
+        <div class="button">
+          <button
+            id="lBtn"
+            class="button btn btn-lg btn-primary"
+            (click)="addlist()"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="content w-50 h-100">
+    <div class="col-12 pt-5 form-login">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Task</th>
+            <th scope="col">Description</th>
+            <th scope="col">Date</th>
+            <th scope="col">Status</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of lists">
+            <td>{{data.name}}</td>
+            <td>{{data.desc}}</td>
+            <td>{{data.date | date:'mediumDate'}}</td>
+            <td>{{data.status}}</td>
+            <td><i class="bi bi-pencil-square"></i></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
